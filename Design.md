@@ -17,10 +17,13 @@
 ```
   - Filters(search)
       - dropdown (selects a company)
-      - future-trend-filter
-      - date-range filter
+      - SelectType component
+      - Company Details
   - Results
-      - chart or a table
+      - chart
+      - graph
+  - DateRange
+      - DatePicker
 ```
 ### Data structure
 
@@ -29,6 +32,9 @@
   type Company {
     company_name: string;
     code: string;
+    status: string;
+    country: string;
+    exchange: string;
   }
 ```
 ```ts
@@ -42,7 +48,7 @@
     days: number;
   }
 ```
-* data-range 
+* Date Range
 ```ts
   type Date-Range {
     date1: timestamp;
@@ -52,6 +58,7 @@
 * stock-data (chart-data)
 ```ts 
   type stock {
+
   }
 ```
 
@@ -60,8 +67,8 @@
 * They are all get endpoints 😼
 
  - stock data -> daily historical data
-    `js get() `
+    `js get("https://www.quandl.com/api/v3/datasets/{datasets}/{database_code}/data.json?limit={n}&api_key={API_KEY}") `
  - 30-day estimated future trend
     `js get() `
  - date range historical data
-    `js get() `
+    `js get("https://www.quandl.com/api/v3/datasets/{datasets}/{database_code}/data.json?limit={n}&start_date=2014-01-01&end_date=2014-12-31&api_key={API_KEY}")  `
