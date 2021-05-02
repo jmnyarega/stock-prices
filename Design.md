@@ -5,7 +5,6 @@
   - A user can select an option to view 30-day estimated future trend.
   - A user can select a start-date or end-date of the data they want to see.
 
-
 ### Accessibility
   - N/B accessibility is personal to me, I believe every web application application should be accessible to as many people/agents as
     possible.
@@ -37,17 +36,20 @@
     exchange: string;
   }
 ```
+
 ```ts
     Companies {
       companies: Company[]
     }
 ```
+
 * Future Trend
 ```ts
   type Trend {
     days: number;
   }
 ```
+
 * Date Range
 ```ts
   type Date-Range {
@@ -58,7 +60,6 @@
 * stock-data (chart-data)
 ```ts 
   type stock {
-
   }
 ```
 
