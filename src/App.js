@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-// components
+// components 
 import { Result } from "antd";
 import SelectCompany from "./Components/Filters/Search";
 import SelectType from "./Components/Filters/Types";
