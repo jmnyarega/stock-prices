@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 // components 
-import { Result } from "antd";
+import { Result, Alert } from "antd";
 import SelectCompany from "./Components/Filters/Search";
 import SelectType from "./Components/Filters/Types";
 import CompanyDetails from "./Components/CompanyDetails";
@@ -17,7 +17,7 @@ function App() {
   const [stockPrices, setStockPrices] = useState([]);
   const [filteredSp, setFilteredSp] = useState([]);
   const [company, setCompany] = useState("");
-  const [type, setType] = useState("high");
+  const [tag, setTag] = useState("high");
   const [pending, setPending] = useState(false);
   const [beginDate, setBeginDate] = useState();
   const [error, setError] = useState("");
@@ -63,7 +63,7 @@ function App() {
     }
   }, [stockPrices]);
 
-  const handleTypeChange = (evt) => setType(evt.target.value);
+  const handleTagChange = (evt) => setTag(evt.target.value);
 
   const onSubmit = () => getStockPriceRange();
   const onSearch = () => getStockPrice();
@@ -74,6 +74,9 @@ function App() {
   return (
     <main>
       <NavBar />
+      {error && (
+        <Alert message={error} className="errors" type="error" closable />
+      )}
       <div className="top-filters">
         <SelectCompany
           changed={changed}
@@ -81,8 +84,8 @@ function App() {
           onSearch={onSearch}
         />
         <SelectType
-          handleTypeChange={handleTypeChange}
-          type={type}
+          handleTagChange={handleTagChange}
+          tag={tag}
           pending={pending}
         />
       </div>
@@ -90,7 +93,7 @@ function App() {
       {error ? (
         <Result status="404" title="404" subTitle={error} />
       ) : (
-        <Results type={type} filteredSp={filteredSp} />
+        <Results type={tag} filteredSp={filteredSp} />
       )}
       <div className="bottom-filters">
         <DateRange
