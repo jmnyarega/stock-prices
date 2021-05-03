@@ -6,6 +6,7 @@
   - A user can select a start-date or end-date of the data they want to see.
 
 ### Accessibility
+
   - In addition to having a Graph to display data, I will have an extra component(Table) to display all the data as
     well.
 
@@ -24,6 +25,7 @@
   - DateRange
       - DatePicker
 ```
+
 ### Data structure
 
 * Companies
@@ -79,15 +81,19 @@
 * They are all get endpoints 😼
 
  - stock data -> daily historical data
-    ```js get("https://www.quandl.com/api/v3/datasets/{datasets}/{database_code}/data.json?limit={n}&api_key={API_KEY}")```
+    ```js
+      get("https://www.quandl.com/api/v3/datasets/{datasets}/{database_code}/data.json?limit={n}&api_key={API_KEY}")
+    ```
  - 30-day estimated future trend
-    ```js get()```
+    ```js
+      get()
+    ```
  - date range historical data
-    ```js get("https://www.quandl.com/api/v3/datasets/{datasets}/{database_code}/data.json?limit={n}&start_date=2014-01-01&end_date=2014-12-31&api_key={API_KEY}")```
-
+    ```js
+      get("https://www.quandl.com/api/v3/datasets/{datasets}/{database_code}/data.json?limit={n}&start_date=2014-01-01&end_date=2014-12-31&api_key={API_KEY}")
+    ```
 
 ### My Schedule
-
 
 | Date | Activity |
 --- | ---
