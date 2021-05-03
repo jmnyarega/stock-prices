@@ -78,8 +78,6 @@
 
 ### API
 
-* They are all get endpoints 😼
-
  - stock data -> daily historical data
     ```js
       get("https://www.quandl.com/api/v3/datasets/{datasets}/{database_code}/data.json?limit={n}&api_key={API_KEY}")
