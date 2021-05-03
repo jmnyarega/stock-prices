@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Table } from "antd";
 
 const columns = [
@@ -51,5 +52,7 @@ const ResultsTable = ({ data }) => {
     </div>
   );
 };
+
+ResultsTable.prototype = { data: PropTypes.obj };
 
 export default ResultsTable;

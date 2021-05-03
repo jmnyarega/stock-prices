@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Tabs, Result } from "antd";
 import Graph from "./Graph";
 import ResultsTable from "./Table";
@@ -17,6 +18,12 @@ const Results = ({ type, filteredSp, error }) => {
       </Tabs>
     </div>
   );
+};
+
+Results.prototype = {
+  type: PropTypes.string,
+  filteredSp: PropTypes.object,
+  error: PropTypes.string,
 };
 
 export default Results;

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Radio } from "antd";
 
 const Tag = ({ handleTagChange, tag, pending }) => {
@@ -16,6 +17,12 @@ const Tag = ({ handleTagChange, tag, pending }) => {
       <Radio.Button value="dividend"> Ex-Dividend </Radio.Button>
     </Radio.Group>
   );
+};
+
+Tag.prototype = {
+  handleTagChange: PropTypes.func,
+  tag: PropTypes.string,
+  pending: PropTypes.bool,
 };
 
 export default Tag;

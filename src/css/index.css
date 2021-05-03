@@ -28,12 +28,6 @@ body {
   margin: 0 auto;
 }
 
-.alert {
-  position: absolute;
-  right: 5rem;
-  z-index: 1;
-}
-
 /*
  * Components
  * ------------
@@ -43,11 +37,20 @@ body {
  *  4. Company Details
  *  5. Date Range
  *  6. Table
+ *  7. Alert
  */
 
 /*
+ * Alert
+ */
+.alert {
+  position: absolute;
+  right: 5rem;
+  z-index: 1;
+}
+
+/*
  * Custom Tooltip
- *
  */
 .custom-tooltip {
   margin: 0;
@@ -66,7 +69,6 @@ body {
 
 /*
  * NavBar
- *
  */
 .nav-bar {
   margin: 1rem 0;
@@ -75,7 +77,6 @@ body {
 
 /*
  * Logo
- *
  */
 .logo__stock {
   color: var(--logo-stock);
@@ -88,7 +89,6 @@ body {
 
 /*
  * Company Details
- *
  */
 .company-details {
   width: 600px;
@@ -107,7 +107,6 @@ body {
 
 /*
  * Search Filters
- *
  */
 .search-filters {
   display: flex;
@@ -132,7 +131,6 @@ body {
 
 /*
  * Date Range
- *
  */
 
 .date-range > form {
@@ -142,8 +140,7 @@ body {
 }
 
 /*
- * Tables
- *
+ * Table
  */
 .table {
   margin-bottom: 1rem;

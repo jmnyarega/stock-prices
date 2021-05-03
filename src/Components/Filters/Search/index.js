@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Select, Button } from "antd";
 import companies from "../../../data/companies.json";
 
@@ -28,6 +29,12 @@ const SelectCompany = ({ changed, pending, onSearch }) => {
       </Button>
     </div>
   );
+};
+
+SelectCompany.prototype = {
+  changed: PropTypes.func,
+  pending: PropTypes.bool,
+  onSearch: PropTypes.func,
 };
 
 export default SelectCompany;

@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const CompanyDetails = ({ data }) => {
   return (
     <div className="company-details">
@@ -12,6 +14,10 @@ const CompanyDetails = ({ data }) => {
       </p>
     </div>
   );
+};
+
+CompanyDetails.prototype = {
+  data: PropTypes.object,
 };
 
 export default CompanyDetails;

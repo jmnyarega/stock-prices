@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import {
   LineChart,
   Line,
@@ -61,7 +63,7 @@ const Graph = ({ type, filteredSp }) => {
             hide={type !== "dividend"}
           />
           <CartesianGrid stroke="#ccc" strokeDasharray="3 3" />
-          <XAxis dataKey="date"  style={{ fontSize: "12px" }} />
+          <XAxis dataKey="date" style={{ fontSize: "12px" }} />
           <YAxis allowDataOverflow />
           <Legend />
           <Tooltip content={<CustomTooltip type={type} />} />
@@ -70,6 +72,11 @@ const Graph = ({ type, filteredSp }) => {
       </ResponsiveContainer>
     </div>
   );
+};
+
+Graph.prototype = {
+  type: PropTypes.string,
+  filteredSp: PropTypes.object,
 };
 
 export default Graph;

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { DatePicker, Button, Form } from "antd";
 import moment from "moment";
 
@@ -69,5 +70,13 @@ const DateRange = ({
     </div>
   );
 };
+
+DateRange.prototype = {
+  pending: PropTypes.bool,
+  onSubmit: PropTypes.func,
+  onFromHandler: PropTypes.func,
+  onToHandler: PropTypes.func,
+  beginDate: PropTypes.string,
+}
 
 export default DateRange;

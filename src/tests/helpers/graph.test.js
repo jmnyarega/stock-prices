@@ -1,5 +1,5 @@
-import { format, getCompanyDetails, latestDate } from "./graph";
-import companies from "../data/companies.json";
+import { format, getCompanyDetails, latestDate } from "../../helpers/graph";
+import companies from "../../data/companies.json";
 
 const d = {
   end_date: "2018-03-27",
