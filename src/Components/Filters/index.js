@@ -1,12 +1,30 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 import SelectCompany from "./Search";
 import SelectTag from "./Tag";
 
-const TopFilters = ({ changed, pending, onSearch, handleTagChange, tag }) => {
+const TopFilters = ({
+  changed,
+  pending,
+  onSearch,
+  handleTagChange,
+  tag,
+  handleFutureChange,
+  checkFuture,
+  companies,
+  company
+}) => {
   return (
     <div className="top-filters">
-      <SelectCompany changed={changed} pending={pending} onSearch={onSearch} />
+      <SelectCompany
+        changed={changed}
+        pending={pending}
+        onSearch={onSearch}
+        companies={companies}
+        handleFutureChange={handleFutureChange}
+        selected={checkFuture}
+        company={company}
+      />
       <SelectTag
         handleTagChange={handleTagChange}
         tag={tag}
@@ -22,6 +40,9 @@ TopFilters.propTypes = {
   onSearch: PropTypes.func,
   handleTagChange: PropTypes.func,
   tag: PropTypes.string,
+  handleFutureChange: PropTypes.func,
+  checkFuture: PropTypes.bool,
+  companies: PropTypes.array,
 };
 
 export default TopFilters;

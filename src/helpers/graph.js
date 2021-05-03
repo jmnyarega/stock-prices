@@ -17,3 +17,10 @@ export const getCompanyDetails = (companyName, co = companies) =>
   co.find((x) => x.ticker && x.ticker === companyName);
 
 export const latestDate = (data) => data.end_date;
+
+export const formatDataset = (data) =>
+  data.map((x) => ({
+    databaseCode: x.database_code,
+    ticker: x.dataset_code,
+    longname: x.name,
+  }));

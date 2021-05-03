@@ -6,6 +6,6 @@ describe("#NavBar", () => {
   it("renders correctly", () => {
     const obj = render(<NavBar />);
     expect(obj.queryByText("Stock")).toBeTruthy();
-    expect(obj.queryByText("Prices")).toBeTruthy();
+    expect(obj.queryByText("Exchange")).toBeTruthy();
   });
 });

@@ -15,17 +15,13 @@
 body {
   font-family: "Roboto", sans-serif;
   max-width: 1400px;
-
-  font-size: 0, 9375rem;
+  width: 80%;
+  margin: 0 auto;
+  font-size: 0.9375rem;
 }
 
 .heading {
   font-family: "Oswald", sans-serif;
-}
-
-.container {
-  width: 80%;
-  margin: 0 auto;
 }
 
 /*
@@ -105,34 +101,39 @@ body {
   padding-left: 0.5rem;
 }
 
+.future__trend {
+  color: var(--light-gray);
+  padding-left: 0.5rem;
+}
+
 /*
  * Search Filters
  */
 .search-filters {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   column-gap: 2rem;
-
-  width: 600px;
-  margin: 0 auto;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 }
 
-.search-filters__dropdown {
-  width: 70%;
-}
-
-.search-filters__type-select {
+.top-filters {
   display: block;
-
   width: 600px;
   margin: 0 auto;
+}
+
+.search-filters__input {
+  width: 300px;
+  max-width: 80%;
+}
+
+.search-filters__checkbox {
+  width: 25%;
 }
 
 /*
  * Date Range
  */
-
 .date-range > form {
   display: flex;
   justify-content: flex-end;

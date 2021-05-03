@@ -1,4 +1,4 @@
-import { format, getCompanyDetails, latestDate } from "../../helpers/graph";
+import { format, getCompanyDetails, latestDate, formatDataset } from "../../helpers/graph";
 import companies from "../../data/companies.json";
 
 const d = {
@@ -64,5 +64,32 @@ describe("#latestDate", () => {
   test("it should return correct output", () => {
     const date = latestDate(d);
     expect(date).toBe("2018-03-27");
+  });
+});
+
+describe("#formatDataset", () => {
+  const data = [
+    {
+      database_code: "CHRIS",
+      database_id: 596,
+      dataset_code: "MGEX_IH1",
+      description:
+        "Historical Futures Prices: Minneapolis HRWI Hard Red Wheat Futures, Continuous Contract #1. Non-adjusted price based on spot-month continuous contract calculations. Raw data from MGEX.",
+      frequency: "daily",
+      id: 9774107,
+      name:
+        "Minneapolis HRWI Hard Red Wheat Futures, Continuous Contract #1 (IH1) (Front Month)",
+      newest_available_date: "2021-04-29",
+      oldest_available_date: "2005-01-03",
+      premium: false,
+      refreshed_at: "2021-05-03T18:28:13.999Z",
+      type: "Time Series",
+    },
+  ];
+  const formatted = formatDataset(data);
+
+  test("data should be formatted correctly", () => {
+    expect(formatted[0].ticker).toBe(data[0].dataset_code);
+    expect(formatted[0].longname).toBe(data[0].name);
   });
 });

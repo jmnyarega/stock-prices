@@ -1,20 +1,49 @@
 import PropTypes from "prop-types";
-import { Select, Button } from "antd";
+
+// components
+import { Select, Button, Form, Checkbox } from "antd";
+
+// data
 import companies from "../../../data/companies.json";
 
-const SelectCompany = ({ changed, pending, onSearch }) => {
+const SelectCompany = ({
+  changed,
+  pending,
+  onSearch,
+  companies: cos,
+  selected,
+  handleFutureChange,
+  company
+}) => {
+  let cmp;
+  if (cos?.length) {
+    cmp = cos;
+  } else {
+    cmp = companies;
+  }
   return (
-    <div className="search-filters">
+    <Form onFinish={onSearch} className="search-filters">
+      <Form.Item label="Future Trend">
+        <Checkbox
+          onChange={handleFutureChange}
+          disabled={pending}
+          checked={selected}
+          className="search-filters__checkbox"
+          name="future"
+        />
+      </Form.Item>
       <Select
         onChange={changed}
-        placeholder="Search to Select"
+        disabled={pending}
         optionFilterProp="children"
-        loading={pending}
-        className="search-filters__dropdown"
+        className="search-filters__input"
+        placeholder="Select Company..."
+        filterOption={false}
+        value={company}
         showSearch
         allowClear
       >
-        {companies
+        {cmp
           .filter(
             (x) => x.ticker.toString() && !x.ticker.toString().indexOf(" ") >= 0
           )
@@ -24,10 +53,15 @@ const SelectCompany = ({ changed, pending, onSearch }) => {
             </Select.Option>
           ))}
       </Select>
-      <Button type="primary" loading={pending} onClick={onSearch}>
+      <Button
+        className="search-filters__button"
+        type="primary"
+        loading={pending}
+        onClick={onSearch}
+      >
         Go!
       </Button>
-    </div>
+    </Form>
   );
 };
 
@@ -35,6 +69,9 @@ SelectCompany.prototype = {
   changed: PropTypes.func,
   pending: PropTypes.bool,
   onSearch: PropTypes.func,
+  companies: PropTypes.array,
+  handleFutureChange: PropTypes.function,
+  checkFuture: PropTypes.bool,
 };
 
 export default SelectCompany;

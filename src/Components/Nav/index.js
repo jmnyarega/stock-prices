@@ -3,7 +3,7 @@ const NavBar = () => {
     <div className="nav-bar">
       <h3 className="heading logo">
         <span className="logo__stock">Stock</span>
-        <span className="logo__prices">Prices</span>
+        <span className="logo__prices">Exchange</span>
       </h3>
     </div>
   );

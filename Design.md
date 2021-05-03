@@ -28,7 +28,7 @@
 
 ### Data structure
 
-* Companies
+##### Companies
 ```ts
   type Company {
     company_name: string;
@@ -45,21 +45,16 @@
     }
 ```
 
-* Future Trend
-```ts
-  type Trend {
-    days: number;
-  }
-```
+##### Date Range
 
-* Date Range
 ```ts
   type DateRange {
     date1: timestamp;
     date2: timestamp;
   }
 ```
-* stock-data (chart-data)
+##### stock-data (chart-data)
+
 ```ts 
   type Stock {
     close: float;
@@ -76,11 +71,23 @@
   }
 ```
 
+##### Future Trend
+
+```ts
+  type Trends {
+    data: Stock[];
+  }
+```
+
 ### API
 
  - stock data -> daily historical data
     ```js
       get("https://www.quandl.com/api/v3/datasets/{datasets}/{database_code}/data.json?limit={n}&api_key={API_KEY}")
+    ```
+ - future estimated trend
+    ```js
+      get(https://www.quandl.com/api/v3/datasets/BSE/BOM533400.json?start_date=Wed%20Mar%2003%202021%2017:35:44%20GMT+0300?api_key=3Ff2GRGRsu1shrGJh_bs)
     ```
  - date range historical data
     ```js
