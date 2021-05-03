@@ -4,7 +4,7 @@ const columns = [
   {
     title: "Date",
     className: "text-0-8",
-    render: (d) => `${d.name} ${d.year}`,
+    render: (d) => `${d.date} ${d.year}`,
   },
   {
     title: "Open",
@@ -45,7 +45,8 @@ const ResultsTable = ({ data }) => {
         dataSource={data}
         size="small"
         columns={columns}
-        rowKey={(d) => `${d.name} ${d.date}`}
+        rowKey={(d) => `${d.date} ${d.year}`}
+        bordered
       />
     </div>
   );

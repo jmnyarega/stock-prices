@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 
 // components 
-import { Result, Alert } from "antd";
-import SelectCompany from "./Components/Filters/Search";
-import SelectType from "./Components/Filters/Types";
+import NavBar from "./Components/Nav";
+import TopFilters from "./Components/Filters";
 import CompanyDetails from "./Components/CompanyDetails";
 import Results from "./Components/Results";
 import DateRange from "./Components/DateRange";
-import NavBar from "./Components/Nav";
+import AlertPopup from "./Components/common/Alert";
 
 // helpers
 import utils from "./helpers";
@@ -52,58 +51,45 @@ function App() {
       setPending(false);
     } catch (err) {
       setPending(false);
-      setError("No data found, Please try a different company.");
+      setError("No data found, Please try a different date range.");
     }
   };
 
   const changed = (value) => setCompany(value);
+
   useEffect(() => {
     if (stockPrices?.data?.length) {
       setFilteredSp(utils.graph.format(stockPrices));
     }
   }, [stockPrices]);
 
+  const onCompanySelectSubmit = () => getStockPrice();
+  const onDateRangeSubmit = () => getStockPriceRange();
+
   const handleTagChange = (evt) => setTag(evt.target.value);
-
-  const onSubmit = () => getStockPriceRange();
-  const onSearch = () => getStockPrice();
-
   const onFromHandler = (_, date) => setFrom(date);
   const onToHandler = (_, date) => setTo(date);
 
   return (
-    <main>
+    <main className="container">
       <NavBar />
-      {error && (
-        <Alert message={error} className="errors" type="error" closable />
-      )}
-      <div className="top-filters">
-        <SelectCompany
-          changed={changed}
-          pending={pending}
-          onSearch={onSearch}
-        />
-        <SelectType
-          handleTagChange={handleTagChange}
-          tag={tag}
-          pending={pending}
-        />
-      </div>
+      <AlertPopup error={error} type="error" />
+      <TopFilters
+        handleTagChange={handleTagChange}
+        changed={changed}
+        tag={tag}
+        pending={pending}
+        onSearch={onCompanySelectSubmit}
+      />
       <CompanyDetails data={utils.graph.getCompanyDetails(company)} />
-      {error ? (
-        <Result status="404" title="404" subTitle={error} />
-      ) : (
-        <Results type={tag} filteredSp={filteredSp} />
-      )}
-      <div className="bottom-filters">
-        <DateRange
-          onSubmit={onSubmit}
-          pending={pending}
-          beginDate={beginDate}
-          onFromHandler={onFromHandler}
-          onToHandler={onToHandler}
-        />
-      </div>
+      <Results type={tag} filteredSp={filteredSp} error={error} />
+      <DateRange
+        onSubmit={onDateRangeSubmit}
+        pending={pending}
+        beginDate={beginDate}
+        onFromHandler={onFromHandler}
+        onToHandler={onToHandler}
+      />
     </main>
   );
 }

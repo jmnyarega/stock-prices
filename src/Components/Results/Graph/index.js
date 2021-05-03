@@ -12,7 +12,7 @@ import {
 
 import CustomTooltip from "../../common/CustomTooltip";
 
-const Graph = ({ type, filteredSp, domains }) => {
+const Graph = ({ type, filteredSp }) => {
   return (
     <div className="graph">
       <ResponsiveContainer width="100%" height={500}>
@@ -61,11 +61,11 @@ const Graph = ({ type, filteredSp, domains }) => {
             hide={type !== "dividend"}
           />
           <CartesianGrid stroke="#ccc" strokeDasharray="3 3" />
-          <XAxis dataKey="name" style={{ fontSize: "12px" }} />
+          <XAxis dataKey="date"  style={{ fontSize: "12px" }} />
           <YAxis allowDataOverflow />
           <Legend />
           <Tooltip content={<CustomTooltip type={type} />} />
-          <Brush dataKey="name" height={30} />
+          <Brush dataKey="date" height={25} />
         </LineChart>
       </ResponsiveContainer>
     </div>

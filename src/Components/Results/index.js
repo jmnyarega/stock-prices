@@ -1,9 +1,11 @@
-import { Tabs } from "antd";
+import { Tabs, Result } from "antd";
 import Graph from "./Graph";
 import ResultsTable from "./Table";
 
-const Result = ({ type, filteredSp }) => {
-  return (
+const Results = ({ type, filteredSp, error }) => {
+  return error ? (
+    <Result status="404" title="No Results Found" subTitle={error} />
+  ) : (
     <div className="results">
       <Tabs defaultActiveKey="1">
         <Tabs.TabPane tab="Graph" key="1">
@@ -17,4 +19,4 @@ const Result = ({ type, filteredSp }) => {
   );
 };
 
-export default Result;
+export default Results;

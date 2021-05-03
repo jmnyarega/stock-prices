@@ -3,7 +3,7 @@ import companies from "../data/companies.json";
 
 export const format = (d) =>
   d.data?.map((x) => ({
-    name: moment(x[0]).format("DD MMM"),
+    date: moment(x[0]).format("DD MMM"),
     year: moment(x[0]).format("YYYY"),
     dividend: x[6],
     open: x[1],

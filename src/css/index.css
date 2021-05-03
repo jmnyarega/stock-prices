@@ -15,8 +15,6 @@
 body {
   font-family: "Roboto", sans-serif;
   max-width: 1400px;
-  width: 80%;
-  margin: 0 auto;
 
   font-size: 0, 9375rem;
 }
@@ -25,7 +23,12 @@ body {
   font-family: "Oswald", sans-serif;
 }
 
-.errors {
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.alert {
   position: absolute;
   right: 5rem;
   z-index: 1;
@@ -108,7 +111,6 @@ body {
  */
 .search-filters {
   display: flex;
-  justify-content: center;
   align-items: center;
   column-gap: 2rem;
 
