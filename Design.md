@@ -79,11 +79,11 @@
 * They are all get endpoints 😼
 
  - stock data -> daily historical data
-    > `js get("https://www.quandl.com/api/v3/datasets/{datasets}/{database_code}/data.json?limit={n}&api_key={API_KEY}") `
+    ```js get("https://www.quandl.com/api/v3/datasets/{datasets}/{database_code}/data.json?limit={n}&api_key={API_KEY}")```
  - 30-day estimated future trend
-    > `js get()`
+    ```js get()```
  - date range historical data
-    > `js get("https://www.quandl.com/api/v3/datasets/{datasets}/{database_code}/data.json?limit={n}&start_date=2014-01-01&end_date=2014-12-31&api_key={API_KEY}")`
+    ```js get("https://www.quandl.com/api/v3/datasets/{datasets}/{database_code}/data.json?limit={n}&start_date=2014-01-01&end_date=2014-12-31&api_key={API_KEY}")```
 
 
 ### My Schedule
