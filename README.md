@@ -5,6 +5,7 @@
   - `Node >= 10.16 and npm >= 5.6`
 
 ### Deployed at:
+  - I noticed Vercel is down at the moment, the vercel link may not work right now. I have deployed the applicate to netlify too. 
   - Vercel: http://stock-prices.vercel.app/ and
   - Netlify: https://sp-josiah.netlify.app/
 
