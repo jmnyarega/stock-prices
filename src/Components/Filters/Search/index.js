@@ -35,11 +35,9 @@ const SelectCompany = ({
       <Select
         onChange={changed}
         disabled={pending}
-        optionFilterProp="children"
         className="search-filters__input"
-        placeholder="Select Company..."
-        filterOption={false}
         value={company}
+        placeholder="Select Company..."
         showSearch
         allowClear
       >
