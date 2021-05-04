@@ -6,7 +6,7 @@ import TopFilters from "./Components/Filters";
 import CompanyDetails from "./Components/CompanyDetails";
 import Results from "./Components/Results";
 import DateRange from "./Components/DateRange";
-import AlertPopup from "./Components/common/Alert";
+import AlertBadge from "./Components/common/Alert";
 
 // helpers
 import utils from "./helpers";
@@ -42,7 +42,7 @@ function App() {
       const res = await utils.requests.getStockPrice(company, database);
       setStockPrices(res.data?.dataset_data);
       setPending(false);
-      setBeginDate(res.data?.dataset_data);
+      setBeginDate(res.data?.dataset_data.end_date);
     } catch (err) {
       setPending(false);
       setError("No data found, Please try a different company.");
@@ -51,7 +51,6 @@ function App() {
 
   const getStockPriceRange = async () => {
     clear();
-    setPending(true);
     try {
       const res = await utils.requests.getStockPriceRange(
         company,
@@ -61,6 +60,7 @@ function App() {
       );
       setStockPrices(res.data?.dataset_data);
       setPending(false);
+      setBeginDate(res.data?.dataset_data.end_date);
     } catch (err) {
       setPending(false);
       setError("No data found, Please try a different date range.");
@@ -68,7 +68,6 @@ function App() {
   };
 
   const getFutureDataSets = async () => {
-    setPending(true);
     try {
       const res = await utils.requests.getDatasets();
       setCompanies(utils.graph.formatDataset(res.data.datasets));
@@ -109,7 +108,7 @@ function App() {
   return (
     <main>
       <NavBar />
-      <AlertPopup error={error} type="error" />
+      <AlertBadge error={error} type="error" />
       <TopFilters
         handleTagChange={handleTagChange}
         changed={changed}

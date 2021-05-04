@@ -2,8 +2,10 @@ import PropTypes from "prop-types";
 import { DatePicker, Button, Form } from "antd";
 import moment from "moment";
 
-function disabledDate(current) {
-  return current && current > moment("2018-03-27", "YYYY-MM-DD");
+function disabledDate(current, date) {
+  if (date) {
+    return current && current > moment(date, "YYYY-MM-DD");
+  }
 }
 
 const DateRange = ({
@@ -15,13 +17,7 @@ const DateRange = ({
 }) => {
   return (
     <div className="date-range">
-      <Form
-        onFinish={onSubmit}
-        initialValues={{
-          from: moment(beginDate || new Date(), "YYYY-MM-DD"),
-          to: moment(beginDate || new Date(), "YYYY-MM-DD"),
-        }}
-      >
+      <Form onFinish={onSubmit}>
         <Form.Item
           label="From"
           name="from"
@@ -41,7 +37,7 @@ const DateRange = ({
         >
           <DatePicker
             size="small"
-            disabledDate={disabledDate}
+            disabledDate={(_) => disabledDate(_, beginDate)}
             onChange={onFromHandler}
           />
         </Form.Item>
@@ -52,7 +48,7 @@ const DateRange = ({
         >
           <DatePicker
             size="small"
-            disabledDate={disabledDate}
+            disabledDate={(_) => disabledDate(_, beginDate)}
             onChange={onToHandler}
           />
         </Form.Item>

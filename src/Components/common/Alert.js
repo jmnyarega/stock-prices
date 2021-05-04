@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Alert } from "antd";
 
-const AlertPopup = ({ error, message, type }) => {
+const AlertBadge = ({ error, message, type }) => {
   return error || message ? (
     <Alert
       message={error || message}
@@ -13,10 +13,10 @@ const AlertPopup = ({ error, message, type }) => {
   ) : null;
 };
 
-AlertPopup.prototype = {
+AlertBadge.prototype = {
   error: PropTypes.obj,
   message: PropTypes.string,
   type: PropTypes.string,
 };
 
-export default AlertPopup;
+export default AlertBadge;
