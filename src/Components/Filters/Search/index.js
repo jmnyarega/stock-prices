@@ -35,6 +35,7 @@ const SelectCompany = ({
       <Select
         onChange={changed}
         loading={pending}
+        disabled={pending}
         className="search-filters__input"
         placeholder="Select Company..."
         value={company}
