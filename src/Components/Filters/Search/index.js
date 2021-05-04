@@ -34,10 +34,10 @@ const SelectCompany = ({
       </Form.Item>
       <Select
         onChange={changed}
-        disabled={pending}
+        loading={pending}
         className="search-filters__input"
-        value={company}
         placeholder="Select Company..."
+        value={company}
         showSearch
         allowClear
       >

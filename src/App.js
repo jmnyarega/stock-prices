@@ -68,6 +68,7 @@ function App() {
   };
 
   const getFutureDataSets = async () => {
+    setPending(true);
     try {
       const res = await utils.requests.getDatasets();
       setCompanies(utils.graph.formatDataset(res.data.datasets));
