@@ -31,6 +31,7 @@ function App() {
     setError("");
     setFilteredSp([]);
     setBeginDate("");
+    setFilteredSp([]);
     !checkFuture && setCompanies([]);
     database === "WIKI" && setCheckFuture(false);
   };

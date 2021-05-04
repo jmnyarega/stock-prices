@@ -3,14 +3,17 @@ import companies from "../data/companies.json";
 
 export const format = (d) =>
   d.data?.map((x) => ({
-    date: moment(x[0]).format("DD MMM"),
-    year: moment(x[0]).format("YYYY"),
-    dividend: x[6],
-    open: x[1],
-    volume: x[5],
-    low: x[3],
-    close: x[4],
-    high: x[2],
+    date: moment(x[d.column_names.indexOf("Date")]).format("DD MMM"),
+    year: moment(x[d.column_names.indexOf("Date")]).format("YYYY"),
+    dividend: x[d.column_names.indexOf("Ex-Dividend")] || 0,
+    open: x[d.column_names.indexOf("Open")] || 0,
+    volume: x[d.column_names.indexOf("Volume")] || 0,
+    low: x[d.column_names.indexOf("Low")] || 0,
+    close:
+      x[d.column_names.indexOf("Close")] ||
+      x[d.column_names.indexOf("Last")] ||
+      0,
+    high: x[d.column_names.indexOf("High")] || 0,
   }));
 
 export const getCompanyDetails = (companyName, co = companies) =>

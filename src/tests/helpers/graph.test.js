@@ -2,6 +2,15 @@ import { format, getCompanyDetails, latestDate, formatDataset } from "../../help
 import companies from "../../data/companies.json";
 
 const d = {
+  column_names: [
+    "Date",
+    "Open",
+    "High",
+    "Low",
+    "Last",
+    "Volume",
+    "Open Interest",
+  ],
   end_date: "2018-03-27",
   frequency: "daily",
   limit: 1000,
@@ -70,6 +79,15 @@ describe("#latestDate", () => {
 describe("#formatDataset", () => {
   const data = [
     {
+      column_names: [
+        "Date",
+        "Open",
+        "High",
+        "Low",
+        "Last",
+        "Volume",
+        "Open Interest",
+      ],
       database_code: "CHRIS",
       database_id: 596,
       dataset_code: "MGEX_IH1",
