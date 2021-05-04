@@ -5,8 +5,8 @@
   - `Node >= 10.16 and npm >= 5.6`
 
 ### Deployed at:
-  Vercel: 
-  Netlify: https://sp-josiah.netlify.app/
+  - Vercel: http://stock-prices.vercel.app/ and
+  - Netlify: https://sp-josiah.netlify.app/
 
 ### System Design Document
   - [system design document](./Design.md)
