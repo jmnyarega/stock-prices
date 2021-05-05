@@ -55,8 +55,7 @@ describe("#format", () => {
     expect(format(d)[0].open).toBe(26.775);
     expect(format(d)[0].high).toBe(27.2);
     expect(format(d)[0].volume).toBe(3345);
-    expect(format(d)[0].date).toBe("27 Mar");
-    expect(format(d)[0].year).toBe("2018");
+    expect(format(d)[0].date).toBe("27 Mar 2018");
   });
 });
 

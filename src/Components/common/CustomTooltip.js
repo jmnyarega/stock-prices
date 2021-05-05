@@ -4,7 +4,7 @@ const CustomTooltip = ({ active, payload, label, type }) => {
   if (active && payload) {
     return (
       <div className="custom-tooltip">
-        <p className="label custom-tooltip__date">{`${label} ${payload[0]?.payload.year}`}</p>
+        <p className="label custom-tooltip__date">{`${label}`}</p>
         {type === "high" && (
           <p className="label">{`High: ${payload[0]?.payload[type]}`}</p>
         )}

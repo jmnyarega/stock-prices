@@ -18,7 +18,9 @@ const Graph = ({ type, filteredSp }) => {
   return (
     <div className="graph">
       <ResponsiveContainer width="100%" height={500}>
-        <LineChart data={filteredSp}>
+        <LineChart
+          data={filteredSp}
+        >
           <Line
             type="monotone"
             dataKey="open"
@@ -63,11 +65,17 @@ const Graph = ({ type, filteredSp }) => {
             hide={type !== "dividend"}
           />
           <CartesianGrid stroke="#ccc" strokeDasharray="3 3" />
-          <XAxis dataKey="date" style={{ fontSize: "12px" }} />
+          <XAxis
+            dataKey="date"
+            fontSize={10}
+            angle={45}
+            textAnchor="start"
+            height={70}
+          />
           <YAxis allowDataOverflow />
           <Legend />
           <Tooltip content={<CustomTooltip type={type} />} />
-          <Brush dataKey="date" height={25} />
+          <Brush dataKey="date" onChange={(x) => console.log(x)} />
         </LineChart>
       </ResponsiveContainer>
     </div>
