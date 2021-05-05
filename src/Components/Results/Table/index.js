@@ -5,7 +5,7 @@ const columns = [
   {
     title: "Date",
     className: "text-0-8",
-    render: (d) => `${d.date} ${d.year}`,
+    render: (d) => d.date,
   },
   {
     title: "Open",
